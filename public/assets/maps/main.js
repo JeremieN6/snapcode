@@ -116,44 +116,44 @@ jQuery(function (window, document, $) {
 	});
 
 	//Global Form validation
-	$('.quote-form').on('submit', function (e) {
-		e.preventDefault();
-		var _self = $(this),
-			data = $(this).serialize(),
-			__selector = _self.closest('input, textarea');
+	// $('.quote-form').on('submit', function (e) {
+	// 	e.preventDefault();
+	// 	var _self = $(this),
+	// 		data = $(this).serialize(),
+	// 		__selector = _self.closest('input, textarea');
 
-		_self.closest('div').find('input,textarea').removeAttr('style');
-		_self.find('.err-msg').remove();
-		_self.find('.form-success').removeClass('form-success');
+	// 	_self.closest('div').find('input,textarea').removeAttr('style');
+	// 	_self.find('.err-msg').remove();
+	// 	_self.find('.form-success').removeClass('form-success');
 
-		$('.submit-loading-img').css('display', 'block');
-		_self.closest('div').find('button[type="submit"]').attr('disabled', 'disabled');
+	// 	$('.submit-loading-img').css('display', 'block');
+	// 	_self.closest('div').find('button[type="submit"]').attr('disabled', 'disabled');
 
-		$.ajax({
-			url: 'assets/email/email.php',
-			type: "post",
-			dataType: 'json',
-			data: data,
-			success: function (data) {
-				$('.submit-loading-img').css('display', 'none');
-				_self.closest('div').find('button[type="submit"]').removeAttr('disabled');
-				if (data.code == false) {
-					_self.closest('div').find('[name="' + data.field + '"]').addClass('form-success');
-					_self.closest('div').find('[name="' + data.field + '"]').after('<div class="err-msg">*' + data.err + '</div>');
-				} else {
-					_self.find('textarea').after('<div class="success-msg">' + data.success + '</div>');
-					_self[0].reset();
-					_self.find('.success-msg').css({
-						'display': 'block'
-					});
+	// 	$.ajax({
+	// 		url: 'assets/email/email.php',
+	// 		type: "post",
+	// 		dataType: 'json',
+	// 		data: data,
+	// 		success: function (data) {
+	// 			$('.submit-loading-img').css('display', 'none');
+	// 			_self.closest('div').find('button[type="submit"]').removeAttr('disabled');
+	// 			if (data.code == false) {
+	// 				_self.closest('div').find('[name="' + data.field + '"]').addClass('form-success');
+	// 				_self.closest('div').find('[name="' + data.field + '"]').after('<div class="err-msg">*' + data.err + '</div>');
+	// 			} else {
+	// 				_self.find('textarea').after('<div class="success-msg">' + data.success + '</div>');
+	// 				_self[0].reset();
+	// 				_self.find('.success-msg').css({
+	// 					'display': 'block'
+	// 				});
 
-					setTimeout(function () {
-						$('.success-msg').fadeOut('slow');
-					}, 5000);
-				}
-			}
-		});
-	});
+	// 				setTimeout(function () {
+	// 					$('.success-msg').fadeOut('slow');
+	// 				}, 5000);
+	// 			}
+	// 		}
+	// 	});
+	// });
 
 	_window.on("load resize", function () {
 

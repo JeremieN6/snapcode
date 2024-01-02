@@ -1,6 +1,6 @@
 {% extends 'base.html.twig' %}
 
-{% block title %} JeremieCode™ | 🫡 Contactez nous{% endblock %}
+{% block title %} SnapCode™ | 🫡 Contactez nous{% endblock %}
 
 {% block body %}
 
@@ -11,7 +11,7 @@
   <nav class="breadcrumb-wrapper" aria-label="breadcrumb">
       <div class="container">
           <ol class="breadcrumb">
-              <li class="breadcrumb-item"><a href="#">Accueil</a></li>
+              <li class="breadcrumb-item"><a href="{{path('app_home')}}">Accueil</a></li>
               <li class="breadcrumb-item active" aria-current="page">Contact</li>
           </ol>
       </div>
@@ -49,8 +49,8 @@
       <p class="larger-txt text-center">Votre projet est unique, tout comme notre engagement à vous offrir le meilleur service. 
           Contactez-nous dès aujourd'hui pour commencer à concrétiser vos idées. Nous sommes toujours à votre écoute et sommes prêts à transformer vos ambitions en une réalité en ligne exceptionnelle.</p>
       <div class="quote-form-wrapper contact-form-wrapper text-center grid-wrapper">
-        <form class="quote-form text-center row">
-            {{form_start(contactForm)}}
+        <div>
+            {{ form_start(contactForm, {'attr': {'class': 'quote-form text-center row', 'id': 'custom-form-id'}}) }}
                 <div class="col-lg-6">
                 {{form_row(contactForm.nom)}}
                 </div>
@@ -69,7 +69,7 @@
             {{form_end(contactForm)}}
                   <!-- End of .social-icons-wrapper -->
                 </div>
-            </form>
+        </div>
           <!-- End of .quote-form -->
       </div>
       <!-- End of .quote-form-wrapper -->

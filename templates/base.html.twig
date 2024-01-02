@@ -1,26 +1,26 @@
 <!DOCTYPE html>
-<html lang="fr" data-theme="auto">
+<html lang="fr">
 
 <head>
     {% block meta %}
     <!-- Required meta tags -->
     <!-- links for favicon -->
-    <link rel="apple-touch-icon" sizes="57x57" href="assets/favicon/apple-icon-57x57.png">
-    <link rel="apple-touch-icon" sizes="60x60" href="assets/favicon/apple-icon-60x60.png">
-    <link rel="apple-touch-icon" sizes="72x72" href="assets/favicon/apple-icon-72x72.png">
-    <link rel="apple-touch-icon" sizes="76x76" href="assets/favicon/apple-icon-76x76.png">
-    <link rel="apple-touch-icon" sizes="114x114" href="assets/favicon/apple-icon-114x114.png">
-    <link rel="apple-touch-icon" sizes="120x120" href="assets/favicon/apple-icon-120x120.png">
-    <link rel="apple-touch-icon" sizes="144x144" href="assets/favicon/apple-icon-144x144.png">
-    <link rel="apple-touch-icon" sizes="152x152" href="assets/favicon/apple-icon-152x152.png">
-    <link rel="apple-touch-icon" sizes="180x180" href="assets/favicon/apple-icon-180x180.png">
-    <link rel="icon" type="image/png" sizes="192x192" href="assets/favicon/android-icon-192x192.png">
-    <link rel="icon" type="image/png" sizes="32x32" href="assets/favicon/favicon-32x32.png">
-    <link rel="icon" type="image/png" sizes="96x96" href="assets/favicon/favicon-96x96.png">
-    <link rel="icon" type="image/png" sizes="16x16" href="assets/favicon/favicon-16x16.png">
-    <link rel="manifest" href="assets/favicon/manifest.json">
+    <link rel="apple-touch-icon" sizes="57x57" href="{{ asset('assets/favicon/apple-icon-57x57.png') }}">
+    <link rel="apple-touch-icon" sizes="60x60" href="{{ asset('assets/favicon/apple-icon-60x60.png') }}">
+    <link rel="apple-touch-icon" sizes="72x72" href="{{ asset('assets/favicon/apple-icon-72x72.png') }}">
+    <link rel="apple-touch-icon" sizes="76x76" href="{{ asset('assets/favicon/apple-icon-76x76.png') }}">
+    <link rel="apple-touch-icon" sizes="114x114" href="{{ asset('assets/favicon/apple-icon-114x114.png') }}">
+    <link rel="apple-touch-icon" sizes="120x120" href="{{ asset('assets/favicon/apple-icon-120x120.png') }}">
+    <link rel="apple-touch-icon" sizes="144x144" href="{{ asset('assets/favicon/apple-icon-144x144.png') }}">
+    <link rel="apple-touch-icon" sizes="152x152" href="{{ asset('assets/favicon/apple-icon-152x152.png') }}">
+    <link rel="apple-touch-icon" sizes="180x180" href="{{ asset('assets/favicon/apple-icon-180x180.png') }}">
+    <link rel="icon" type="image/png" sizes="192x192" href="{{ asset('assets/favicon/android-icon-192x192.png') }}">
+    <link rel="icon" type="image/png" sizes="32x32" href="{{ asset('assets/favicon/favicon-32x32.png') }}">
+    <link rel="icon" type="image/png" sizes="96x96" href="{{ asset('assets/favicon/favicon-96x96.png') }}">
+    <link rel="icon" type="image/png" sizes="16x16" href="{{ asset('assets/favicon/favicon-16x16.png') }}">
+    <link rel="manifest" href="{{ asset('assets/favicon/manifest.json') }}">
     <meta name="msapplication-TileColor" content="#ffffff">
-    <meta name="msapplication-TileImage" content="assets/favicon/ms-icon-144x144.png">
+    <meta name="msapplication-TileImage" content="{{ asset('assets/favicon/ms-icon-144x144.png') }}">
     <meta name="theme-color" content="#ffffff">
     <!-- Basic metas -->
     <meta charset="utf-8">
@@ -34,15 +34,15 @@
 
     <!-- Twitter -->
     <meta name="twitter:card" content="summary_large_image">
-    <meta name="twitter:site" content="@JeremieCode™">
-    <meta name="twitter:creator" content="@JeremieCode™">
-    <meta name="twitter:title" content="JeremieCode™">
-    <meta name="twitter:description" content="JeremieCode™ Digital Agency">
+    <meta name="twitter:site" content="@SnapCode™">
+    <meta name="twitter:creator" content="@SnapCode™">
+    <meta name="twitter:title" content="SnapCode™">
+    <meta name="twitter:description" content="SnapCode™ Digital Agency">
     <meta name="twitter:image" content="assets/images/brand-logo.svg">
     <!-- Facebook -->
     <meta property="og:url" content="">
-    <meta property="og:title" content="JeremieCode™">
-    <meta property="og:description" content="JeremieCode™ Digital Agency">
+    <meta property="og:title" content="SnapCode™">
+    <meta property="og:description" content="SnapCode™ Digital Agency">
     <meta property="og:type" content="website">
     <meta property="og:image" content="assets/images/brand-logo.svg">
     <meta property="og:image:secure_url" content="">
@@ -50,7 +50,7 @@
     <meta property="og:image:width" content="1200">
     <meta property="og:image:height" content="630">
     {% endblock %}
-    <title>{% block title %}JeremieCode™ Agency{% endblock %}</title>
+    <title>{% block title %}SnapCode™ Agency{% endblock %}</title>
     {# Run `composer require symfony/webpack-encore-bundle` to start using Symfony UX #}
     {% block stylesheets %}
     <!-- Icon fonts -->
@@ -62,21 +62,24 @@
     <link rel="stylesheet" href="assets/css/vendor/bootstrap.min.css">
 
     <!-- Owl Carousel -->
-    <link rel="stylesheet" type="text/css" href="assets/css/vendor/owl.carousel.min.css">
-    <link rel="stylesheet" type="text/css" href="assets/css/vendor/owl.theme.default.min.css">
+    <link rel="stylesheet" type="text/css" href="{{ asset('assets/css/vendor/owl.carousel.min.css') }}">
+    <link rel="stylesheet" type="text/css" href="{{ asset('assets/css/vendor/owl.theme.default.min.css') }}">
 
     <!-- Magnific popup -->
-    <link rel="stylesheet" type="text/css" href="assets/css/vendor/magnific-popup.css">
+    <link rel="stylesheet" type="text/css" href="{{ asset('assets/css/vendor/magnific-popup.css') }}">
 
     <!-- Custom styles -->
-    <link rel="stylesheet" type="text/css" href="assets/css/main.css">
+    <link rel="stylesheet" type="text/css" href="{{ asset('assets/css/main.css') }}">
+
+    <!-- Load Flashy default CSS -->
+    <link rel="stylesheet" href="{{ asset('bundles/mercuryseriesflashy/css/flashy.css') }}">
     {% endblock %}
 
 </head>
 
 <body>
     {% include 'header.html.twig' %}
-    
+
     {% if app.user and app.user.isVerified == false %}
     <div class="flashy flashy--warning">
         <i class="material-icons">speaker_notes</i>
@@ -93,28 +96,30 @@
 
     {% block javascripts %}
         <!-- jQuery -->
-        <script src="assets/js/vendor/jquery.min.js"></script>
-        <script src="assets/js/vendor/jquery-migrate.min.js"></script>
+        <script src="{{ asset('assets/js/vendor/jquery.min.js') }}"></script>
+        <script src="{{ asset('assets/js/vendor/jquery-migrate.min.js') }}"></script>
 
         <!-- jQuery Easing Plugin -->
-        <script src="assets/js/vendor/easing-1.3.js"></script>
+        <script src="{{ asset('assets/js/vendor/easing-1.3.js') }}"></script>
         <!-- Bootstrap js -->
-        <script src="assets/js/vendor/bootstrap.bundle.min.js"></script>
-        <script src="assets/js/vendor/isotope.pkgd.min.js"></script>
+        <script src="{{ asset('assets/js/vendor/bootstrap.bundle.min.js') }}"></script>
+        <script src="{{ asset('assets/js/vendor/isotope.pkgd.min.js') }}"></script>
 
         <!-- jQuery progressbar plugin -->
-        <script src="assets/js/vendor/jquery.waypoints.min.js"></script>
-        <script src="assets/js/vendor/jquery.counterup.min.js"></script>
+        <script src="{{ asset('assets/js/vendor/jquery.waypoints.min.js') }}"></script>
+        <script src="{{ asset('assets/js/vendor/jquery.counterup.min.js') }}"></script>
         <!-- ImagesLoaded js -->
-        <script src="assets/js/vendor/imagesloaded.pkgd.min.js"></script>
+        <script src="{{ asset('assets/js/vendor/imagesloaded.pkgd.min.js') }}"></script>
         <!-- Owl carousel js -->
-        <script src="assets/js/vendor/owl.carousel.min.js"></script>
+        <script src="{{ asset('assets/js/vendor/owl.carousel.min.js') }}"></script>
         <!-- Magnific popup -->
-        <script src="assets/js/vendor/jquery.magnific-popup.min.js"></script>
+        <script src="{{ asset('assets/js/vendor/jquery.magnific-popup.min.js') }}"></script>
         <!-- Plugins -->
-        <script src="assets/js/plugins.js"></script>
+        <script src="{{ asset('assets/js/plugins.js') }}"></script>
         <!-- Custom Script -->
-        <script src="assets/js/main.min.js"></script>
+        <script src="{{ asset('assets/js/main.min.js') }}"></script>
+        <!-- Load Flashy default JavaScript -->
+        <script src="{{ asset('bundles/mercuryseriesflashy/js/flashy.js') }}"></script>
     {% endblock %}
     <!-- Include Flashy default partial -->
     {{ include('@MercurySeriesFlashy/flashy.html.twig') }}

@@ -71,14 +71,12 @@ class HomeController extends AbstractController
             $data = $contactForm->getData();
 
             $mailAdress = $data['email'];
-            $companyName = $data['companyName'];
-            $phone = $data['phone'];
             $emailMessage = $data['message'];
 
             $email = (new Email())
                 ->from($mailAdress)
                 ->to('contact@jeremiecode.fr')
-                ->subject('Email reçu depuis la page contact')
+                ->subject('Email reçu depuis la page contact de SnapCode™ Agency')
                 ->text($emailMessage);
 
                 $mailer->send($email);
