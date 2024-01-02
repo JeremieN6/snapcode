@@ -85,7 +85,7 @@ class HomeController extends AbstractController
                 $flashy->success('Votre email a bien été envoyé ✅ !');
 
                 // Redirigez l'utilisateur vers la même page (rafraîchissement)
-                return $this->redirectToRoute('app_contact');
+                return $this->redirectToRoute('app_home');
         }elseif ($contactForm->isSubmitted() && !$contactForm->isValid()) {
             $flashy->error('Une erreur est survenue lors de l\'envoie du mail. Veuillez réessayer.');
         }
