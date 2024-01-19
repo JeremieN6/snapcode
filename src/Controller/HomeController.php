@@ -72,11 +72,10 @@ class HomeController extends AbstractController
 
             $senderEmail = 'contact@snapcode.jeremiecode.fr'; // Adresse de l'expéditeur
             $mailAdress = $data['email']; // Adresse du destinataire
-            $emailMessage = 'Email envoyé par : ' . $senderEmail . "\n\n" . $data['message'];
-            // $emailMessage = $data['message'];
+            $emailMessage = 'Email envoyé par : ' . $mailAdress . "\n\n" . $data['message'];
 
             $email = (new Email())
-                ->from($mailAdress)
+                ->from($senderEmail)
                 ->to('contact@snapcode.jeremiecode.fr')
                 ->subject('Email de contact de SnapCode™ Agency')
                 ->text($emailMessage);
