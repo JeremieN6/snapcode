@@ -3,6 +3,7 @@
 namespace App\Controller;
 
 use App\Entity\Newsletter;
+use App\Entity\Contact;
 use App\Form\ContactType;
 use App\Form\NewsletterType;
 use App\Repository\NewsletterRepository;
@@ -61,6 +62,7 @@ class HomeController extends AbstractController
     public function contact(
         Request $request, 
         MailerInterface $mailer,
+        EntityManagerInterface $entityManager,
         \MercurySeries\FlashyBundle\FlashyNotifier $flashy): Response
     {
         $contactForm = $this->createForm(ContactType::class);
@@ -72,7 +74,12 @@ class HomeController extends AbstractController
 
             $senderEmail = 'contact@snapcode.jeremiecode.fr'; // Adresse de l'expéditeur
             $mailAdress = $data['email']; // Adresse du destinataire
-            $emailMessage = 'Email envoyé par : ' . $mailAdress . "\n\n" . $data['message'];
+
+            $senderName = $data['nom']; // Nom du destinataire
+            $phoneNumber = $data['phone']; // Téléphone du destinataire
+            $companyName = $data['companyName']; // Nom Entreprise du destinataire
+
+            $emailMessage = 'Email envoyé par : ' . $senderName . "\n\nAdresse email : " .$senderEmail. "\n\n" . $data['message'];
 
             $email = (new Email())
                 ->from($senderEmail)
@@ -82,11 +89,26 @@ class HomeController extends AbstractController
 
                 $mailer->send($email);
 
+
+            // Enregistrer les informations du formulaire dans la base de donnée
+                // Crée une nouvelle instance de l'entité Contact
+                $contact = new Contact();
+                $contact->setNom($data['nom']);
+                $contact->setEmail($data['email']);
+                $contact->setCompanyName($data['companyName']);
+                $contact->setPhoneNumberCompany($data['phone']);
+                $contact->setEmailMessage($data['message']);
+
+                // Enregistre l'entité dans la base de données
+                $entityManager->persist($contact);
+                $entityManager->flush();
+
                 // Utilisez Flashy pour afficher un message flash de succès
                 $flashy->success('Votre email a bien été envoyé ✅ !');
 
                 // Redirigez l'utilisateur vers la même page (rafraîchissement)
                 return $this->redirectToRoute('app_home');
+
         }elseif ($contactForm->isSubmitted() && !$contactForm->isValid()) {
             $flashy->error('Une erreur est survenue lors de l\'envoie du mail. Veuillez réessayer.');
         }
