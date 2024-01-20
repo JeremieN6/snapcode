@@ -56,9 +56,6 @@ class Users implements UserInterface, PasswordAuthenticatedUserInterface, Serial
     #[ORM\Column(length: 200, nullable: true)]
     private ?string $ville = null;
 
-    #[ORM\Column(length: 100, nullable: true)]
-    private ?string $pseudo = null;
-
     #[ORM\Column(length: 255, nullable: true)]
     private ?string $description = null;
 
@@ -231,18 +228,6 @@ class Users implements UserInterface, PasswordAuthenticatedUserInterface, Serial
     public function setVille(?string $ville): self
     {
         $this->ville = $ville;
-
-        return $this;
-    }
-
-    public function getPseudo(): ?string
-    {
-        return $this->pseudo;
-    }
-
-    public function setPseudo(?string $pseudo): self
-    {
-        $this->pseudo = $pseudo;
 
         return $this;
     }
